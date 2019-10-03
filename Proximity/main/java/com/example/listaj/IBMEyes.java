@@ -86,4 +86,3 @@ public class IBMEyes extends Activity implements SensorEventListener{
 
 
 }
-

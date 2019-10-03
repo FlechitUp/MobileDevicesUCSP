@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.app.Activity;
+import android.renderscript.ScriptGroup;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -28,7 +29,8 @@ public class MainActivity extends Activity
     Sensor myProximitySensor;
 
 
-    @Override   protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -57,10 +59,29 @@ public class MainActivity extends Activity
 
                 startActivity(intent);*/
 
-                Intent intent = new Intent(MainActivity.this, IBMEyes.class);
-                //intent.putExtra("ListViewCl","ija"); //TempListViewClickedValue
+                if (position == 0 ){  //Accelerometer
+                    Intent intent = new Intent(MainActivity.this, Accelero.class);
+                    startActivity(intent);
+                }
+                else if (position == 1 ){  //Proximity
+                    Intent intent = new Intent(MainActivity.this, IBMEyes.class);
+                    //intent.putExtra("ListViewCl","ija"); //TempListViewClickedValue
+                    startActivity(intent);
+                }
+                else if (position == 2 ){
+                    Intent intent = new Intent(MainActivity.this, Compass.class);
+                    startActivity(intent);
+                }
+                else if (position == 3 ){  //Proximity
+                    Intent intent = new Intent(MainActivity.this, StepCou.class);
+                    //intent.putExtra("ListViewCl","ija"); //TempListViewClickedValue
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(MainActivity.this, PillowSitUp.class);
+                    startActivity(intent);
+                }
 
-                startActivity(intent);
 
             }
         });
